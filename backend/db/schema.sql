@@ -1,0 +1,38 @@
+CREATE DATABASE IF NOT EXISTS ai_devops;
+USE ai_devops;
+
+CREATE TABLE IF NOT EXISTS accounts (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    access_key VARCHAR(255) NOT NULL,
+    secret_key TEXT NOT NULL,
+    default_region VARCHAR(50) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS environments (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    env_id VARCHAR(100) NOT NULL UNIQUE,
+    name VARCHAR(255) NOT NULL,
+    account_id INT,
+    region VARCHAR(50) NOT NULL,
+    status VARCHAR(50) DEFAULT 'unapplied',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (account_id) REFERENCES accounts(id) ON DELETE SET NULL
+);
+
+CREATE TABLE IF NOT EXISTS deployments (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    env_id VARCHAR(100) NOT NULL,
+    logs TEXT,
+    status VARCHAR(50),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (env_id) REFERENCES environments(env_id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS chats (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_prompt TEXT NOT NULL,
+    llm_response TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
