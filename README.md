@@ -1,5 +1,5 @@
-This Project is used to create infrastructure on AWS platform using terraform.
-The terraform files be generated automatically by prompting requirements using natural language.
+This Project is used to create infrastructure on AWS platform using terraform.\n
+The terraform files be generated automatically by prompting requirements using natural language.\n
 I am using llm model: "gemini-2.5-flash"
 
 U need to create backend/.env file as follow:
