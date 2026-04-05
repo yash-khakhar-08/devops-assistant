@@ -1,4 +1,4 @@
-This Project is used to create infrastructure on AWS platform using terraform.  
+This Project is build in React.js for frontend and Node.js for backend and is used to create infrastructure on AWS platform using terraform.  
 
 The terraform files be generated automatically by prompting requirements using natural language.  
 
