@@ -96,6 +96,3 @@ The backend server should now be running on `http://localhost:5001`.
 - `frontend/`: Real-time interactive UI built seamlessly with React.
   - `frontend/src/pages/`: Main application screens (Chat, Environments, Settings).
 - `envs/`: Directory used securely by the application for managing workspace requirements or Terraform outputs.
-
-
->>>>>>> b5a3565 (added readme file)
